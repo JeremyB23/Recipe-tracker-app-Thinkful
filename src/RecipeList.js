@@ -4,9 +4,7 @@ import React from "react";
   // TODO: Create at least one additional component that is used by this component.
   // TODO: Each recipe row must have a delete button - <button name="delete">Delete</button> - that deletes the post when clicked
 
-
-  import React from "react";
-  import RecipeViewer from "./RecipeViewer";
+import RecipeViewer from "./RecipeViewer";
   
   function RecipeList({ recipes, deleteRecipe }) {
     console.log(recipes)
