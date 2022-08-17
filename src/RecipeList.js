@@ -6,7 +6,7 @@ import React from "react";
 
 
   import React from "react";
-  import RecipeView from "./RecipeView";
+  import RecipeViewer from "./RecipeViewer";
   
   function RecipeList({ recipes, deleteRecipe }) {
     console.log(recipes)
