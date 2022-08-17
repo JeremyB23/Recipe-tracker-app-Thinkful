@@ -23,7 +23,7 @@ import RecipeViewer from "./RecipeViewer";
           </thead>
           <tbody>
           {recipes.map((recipe, index) => (
-              <RecipeView
+              <RecipeViewer
                 deleteRecipe={() => deleteRecipe(index)}
                 key={index}
                 recipe={recipe}
