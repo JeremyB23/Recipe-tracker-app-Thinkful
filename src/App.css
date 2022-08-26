@@ -81,11 +81,10 @@ thead:nth-child(7), thead:nth-child(8) {
 
 /* Column size for tbody */
 
-tbody col {
+td:nth-child(1), td:nth-child(2), td:nth-child(3), td:nth-child(6) {
   width: 10%;
 }
 
-tbody:nth-child(7), tbody:nth-child(8) {
+td:nth-child(4), td:nth-child(5) {
   width: 30%;
 }
-   
