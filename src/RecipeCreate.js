@@ -4,7 +4,8 @@ import React, { useState } from "react";
   // TODO: Add the required input and textarea form elements.
   // TODO: Add the required submit and change handlers
 
-function RecipeCreate({createRecipe}) { 
+function RecipeCreate({createRecipe}) {
+  
   const initialFormState = {
     name: "",
     cuisine: "",
@@ -12,20 +13,29 @@ function RecipeCreate({createRecipe}) {
     ingredients: "",
     preparation: "",
   };
-  const [formData, setFormData] = useState({ ...initialFormState });
-  const handleChange = ({ target }) => {  
-    const value = target.value;
+  
+  const [formData, setFormData] = useState(initialFormState );
+  
+  const handleChange = ({ target }) => {
     setFormData({
       ...formData,
-      [target.name]: value,
+      [target.name]: target.value,
     });
   };
+  
+    const handleText = ({target}) => {
+      setFormData({...formData,
+        [target.name]: target.value
+      });
+  };
+
   const handleSubmit = (event) => {
-    event.preventDefault();
-    createRecipe(formData);  
-    setFormData({ ...initialFormState });
+    event.preventDefault()
+    createRecipe(formData)
+    setFormData(initialFormState)
   };
   
+
   return (
     <form name="create" onSubmit={handleSubmit}>
       <table>
@@ -33,62 +43,27 @@ function RecipeCreate({createRecipe}) {
           <tr>
             <td>
               <label htmlFor="name">
-              <input
-                id="name"
-                type="text"
-                name="name"
-                placeholder="Name"
-                onChange={handleChange}
-                value={formData.name}
-              />
+                <input id="name" type="text" name="name" placeholder="Name" onChange={handleText} value={formData.name} required/>
               </label>
             </td>
             <td>
               <label htmlFor="cuisine">
-              <input
-                id="cuisine"
-                type="text"
-                name="cuisine"
-                placeholder="Cuisine"
-                onChange={handleChange}
-                value={formData.cuisine}
-              />
+              <input id="name" type="text" name="cuisine" placeholder="Cuisine" onChange={handleText} value={formData.cuisine} required/>
               </label>
             </td>
             <td>
               <label htmlFor="photo">
-              <input
-                id="photo"
-                type="url"
-                name="photo"
-                placeholder="URL"
-                onChange={handleChange}
-                value={formData.photo}
-              />
+                <input id="photo" type="url" name="photo" placeholder="URL" onChange={handleText} value={formData.photo} required/>         
               </label>
             </td>
             <td>
               <label htmlFor="ingredients">
-              <textarea
-                id="ingredients"
-                type="text"
-                name="ingredients"
-                placeholder="Ingredients"
-                onChange={handleChange}
-                value={formData.ingredients}
-              />
+              <textarea id="ingredients" type="text" rows={2} name="ingredients" placeholder="Ingredients" onChange={handleText} value={formData.ingredients} required />
               </label>
             </td>
-            <td>
+            <td >
               <label htmlFor="preparation">
-              <textarea
-                id="preparation"
-                type="text"
-                name="preparation"
-                placeholder="Preparation"
-                onChange={handleChange}
-                value={formData.preparation}
-              />
+              <textarea id="preparation" type="text" rows={2} name="preparation" placeholder="Preparation" onChange={handleText} value={formData.preparation} required/>              
               </label>
             </td>
             <td>
